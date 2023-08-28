@@ -7,7 +7,7 @@ export default function LoginForm() {
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault;
-    alert("bonjour " + nouveauNom);
+    alert(`bonjour ${nouveauNom}`);
     setNouveauNom("");
   };
 
@@ -18,21 +18,20 @@ export default function LoginForm() {
 
   //affichage
   return (
-    <div>
+    <form action="submit" onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous</h1>
+      <br />
       <h2>Connectez-vous</h2>
-      <form action="submit" onSubmit={handleSubmit}>
-        <label>
-          <input
-            value={nouveauNom}
-            type="text"
-            name="name"
-            placeholder="Entrez votre prénom"
-            onChange={handleChange}
-          />
-        </label>
-        <button label="Accédez à votre espace">Accédez à votre espace</button>
-      </form>
-    </div>
+      <label>
+        <input
+          value={nouveauNom}
+          type="text"
+          placeholder="Entrez votre prénom"
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <button label="Accédez à votre espace">Accédez à votre espace</button>
+    </form>
   );
 }
