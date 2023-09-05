@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function LoginForm() {
   //state
@@ -7,7 +8,6 @@ export default function LoginForm() {
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault;
-    alert(`bonjour ${nouveauNom}`);
     setNouveauNom("");
   };
 
@@ -31,7 +31,9 @@ export default function LoginForm() {
           required
         />
       </label>
-      <button label="Accédez à votre espace">Accédez à votre espace</button>
+      <Link to="/order">
+        <button label="Accédez à votre espace">Accédez à votre espace</button>
+      </Link>
     </form>
   );
 }
