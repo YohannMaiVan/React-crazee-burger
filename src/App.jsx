@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import ErrorPage from "./components/pages/error/ErrorPage";
+import { Route, Routes } from "react-router-dom";
 import LoginPage from "./components/pages/login/LoginPage";
 import OrderPage from "./components/pages/order/OrderPage";
+import ErrorPage from "./components/pages/error/ErrorPage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/order" element={<OrderPage />} />
+          <Route path="/order/:username" element={<OrderPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>

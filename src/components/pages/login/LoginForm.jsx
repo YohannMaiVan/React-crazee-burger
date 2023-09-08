@@ -1,19 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
   //state
   const [nouveauNom, setNouveauNom] = useState("");
-
+  const navigate = useNavigate();
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault;
     setNouveauNom("");
+    navigate(`order/${nouveauNom}`);
   };
 
   const handleChange = (event) => {
     setNouveauNom(event.target.value);
-    console.log(nouveauNom);
   };
 
   //affichage
@@ -31,9 +31,7 @@ export default function LoginForm() {
           required
         />
       </label>
-      <Link to="/order">
-        <button label="Accédez à votre espace">Accédez à votre espace</button>
-      </Link>
+      <button label="Accédez à votre espace">Accédez à votre espace</button>
     </form>
   );
 }
