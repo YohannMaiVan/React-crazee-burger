@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { IoChevronForward } from "react-icons/io5";
-import Input from "./Input";
+import TextInput from "./TextInput";
 import { BsPersonCircle } from "react-icons/bs";
 import { theme } from "../../../theme/index";
 
@@ -29,12 +29,12 @@ export default function LoginForm() {
       <hr />
       <h2>Connectez-vous</h2>
       <div>
-        <Input
+        <TextInput
           value={nouveauNom}
           onChange={handleChange}
+          Icon={<BsPersonCircle className="icon-input" />}
           placeholder={"Entrez votre prénom..."}
           required
-          Icon={<BsPersonCircle className="icon-input" />}
         />
         <div className="button-with-icon">
           <button>Accéder à mon espace</button>
@@ -56,7 +56,7 @@ const LoginFormStyled = styled.form`
   font-family: "Amatic SC", cursive;
 
   hr {
-    border: 1.5px solid #ffa51b;
+    border: 1.5px solid #f56a2c;
     margin-bottom: 40px;
   }
 

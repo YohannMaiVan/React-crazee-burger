@@ -14,7 +14,6 @@ export default function LoginPage() {
 }
 
 const LoginPageStyled = styled.div`
-  border: 1px solid blue;
   height: 100vh;
   display: flex;
   flex-direction: column;
