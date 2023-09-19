@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function Logo() {
   return (
@@ -11,7 +12,7 @@ export default function Logo() {
 }
 
 const LogoStyled = styled.div`
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +22,7 @@ const LogoStyled = styled.div`
   h1 {
     display: inline;
     text-align: center;
-    color: #ffa01b;
+    color: ${theme.colors.primary};
     font-size: 36px;
     line-height: 1em;
     font-weight: 700;
