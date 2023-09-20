@@ -12,27 +12,27 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
 }
 
 const InputStyled = styled.div`
-  background-color: #ffffff;
-  border-radius: 5px;
+  background-color: ${theme.colors.white};
+  border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
   padding: 18px 24px;
   margin: 18px 0;
 
   .icon-input {
-    color: ${theme.colors.greyLight};
-    font-size: 15px;
+    color: ${theme.colors.greySemiDark};
+    font-size: ${theme.fonts.P0};
     margin-right: 12px;
   }
 
   input {
     border: none;
-    color: "#17161a";
+    color: ${theme.colors.dark};
     font-size: 15px;
     width: 100%;
 
     &::placeholder {
-      background-color: #ffffff;
+      background-color: ${theme.colors.white};
       color: ${theme.colors.greyMedium};
     }
 

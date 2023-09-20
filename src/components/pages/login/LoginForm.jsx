@@ -52,25 +52,27 @@ const LoginFormStyled = styled.form`
   min-width: 400px;
   margin: 0px auto;
   padding: 2.5rem 2rem;
-  border-radius: 5px;
+  border-radius: ${theme.borderRadius.round};
   font-family: "Amatic SC", cursive;
 
   hr {
-    border: 1.5px solid #f56a2c;
-    margin-bottom: 40px;
+    border: 1.5px solid #f56a2c; //color from figma but not present in design system
+    margin-bottom: ${theme.gridUnit * 5}px;
   }
 
   h1 {
-    color: #ffffff;
-    font-size: 48px;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.P5};
   }
 
   h2 {
-    color: #ffffff;
-    font-size: 36px;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.P4};
+    margin: 20px 10px 10px;
   }
 
   .icon-button {
+    font-size: ${theme.fonts.P0};
     margin-top: 0.156rem;
     margin-left: 0.6rem;
   }
