@@ -5,6 +5,7 @@ import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import { BsPersonCircle } from "react-icons/bs";
 import { theme } from "../../../theme/index";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
   //state
@@ -36,17 +37,16 @@ export default function LoginForm() {
           placeholder={"Entrez votre prénom..."}
           required
         />
-        <div className="button-with-icon">
-          <button>Accéder à mon espace</button>
-          <IoChevronForward className="icon-button" />
-        </div>
+        <PrimaryButton
+          label={"Accéder à mon espace"}
+          Icon={<IoChevronForward className="icon-button" />}
+        />
       </div>
     </LoginFormStyled>
   );
 }
 
 const LoginFormStyled = styled.form`
-  /* background: green; */
   text-align: center;
   max-width: 500px;
   min-width: 400px;
@@ -70,40 +70,8 @@ const LoginFormStyled = styled.form`
     font-size: 36px;
   }
 
-  .button-with-icon {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: ${theme.colors.primary_burger};
-    border: none;
-    text-decoration: none;
-    color: ${theme.colors.white};
-    border-radius: 5px;
-    font-size: 15px;
-    height: 53px;
-    cursor: pointer;
-
-    &:active {
-      background-color: ${theme.colors.white};
-      border: 1px solid ${theme.colors.primary};
-      color: ${theme.colors.primary_burger};
-    }
-  }
-
-  .button-with-icon button {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: inherit;
-    font-size: inherit;
-    text-align: inherit;
-    text-decoration: none;
-    margin-right: 9px;
-  }
-
   .icon-button {
-    margin-top: 3px;
+    margin-top: 0.156rem;
+    margin-left: 0.6rem;
   }
 `;
