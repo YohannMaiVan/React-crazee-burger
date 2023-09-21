@@ -9,14 +9,14 @@ import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
   //state
-  const [userName, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault();
     setUsername("");
-    navigate(`order/${userName}`);
+    navigate(`order/${username}`);
   };
 
   const handleChange = (event) => {
@@ -31,7 +31,7 @@ export default function LoginForm() {
       <h2>Connectez-vous</h2>
       <div>
         <TextInput
-          value={userName}
+          value={username}
           onChange={handleChange}
           Icon={<BsPersonCircle className="icon-input" />}
           placeholder={"Entrez votre prénom..."}
