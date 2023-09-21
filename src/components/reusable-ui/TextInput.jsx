@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../theme/index";
 
 export default function TextInput({ value, onChange, Icon, ...extraProps }) {
-  //state
+  //affichage
   return (
     <InputStyled>
       {Icon && Icon}
@@ -21,7 +21,7 @@ const InputStyled = styled.div`
 
   .icon-input {
     color: ${theme.colors.greySemiDark};
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.P0};
     margin-right: 12px;
   }
 
@@ -37,7 +37,11 @@ const InputStyled = styled.div`
     }
 
     &:focus {
-      outline: none !important;
+      outline-color: ${theme.colors.greyMedium};
+      -webkit-transition: outline-color 0.7s ease-out 1s;
+      -moz-transition: outline-color 0.7s ease-out 1s;
+      -o-transition: outline-color 0.7s ease-out 1s;
+      transition: outline-color 0.7s ease-out 1s;
     }
   }
 `;
