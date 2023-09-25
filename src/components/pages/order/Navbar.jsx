@@ -16,14 +16,10 @@ const NavbarStyled = styled.nav`
   background: ${theme.colors.white};
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
-  height: 10vh;
+  height: 12vh;
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-
-  .left-side {
-    background: pink;
-  }
 
   .logo-order-page {
     cursor: pointer;

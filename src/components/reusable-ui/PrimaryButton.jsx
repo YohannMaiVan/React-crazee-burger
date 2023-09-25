@@ -11,9 +11,9 @@ export default function PrimaryButton({ label, Icon }) {
 }
 
 const PrimaryButtonStyled = styled.button`
-  border: 1px solid red;
   width: 100%;
-  display: flex;
+  border: 1px solid red;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   background-color: ${theme.colors.primary_burger};
