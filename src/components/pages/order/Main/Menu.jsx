@@ -15,25 +15,14 @@ export default function Menu() {
     <MenuStyled>
       {menu.map((product) => {
         return (
-          <Product
-            title={product.title}
-            imageSource={product.imageSource}
-            price={product.price}
-            id={product.id}
-            key={product.id}
-          />
-          // <div className="product" key={product.id}>
-          //   <div className="image">
-          //     <img src={product.imageSource} alt={product.title} />
-          //   </div>
-          //   <div className="info-text">
-          //     <div className="title">{product.title}</div>
-          //     <div className="description">
-          //       <div className="price">{product.price}</div>
-          //       <button className="add-button">Ajouter</button>
-          //     </div>
-          //   </div>
-          // </div>
+          // <Product
+          //   title={product.title}
+          //   imageSource={product.imageSource}
+          //   price={product.price}
+          //   id={product.id}
+          //   key={product.id}
+          // />
+          <Product {...product} />
         );
       })}
     </MenuStyled>
