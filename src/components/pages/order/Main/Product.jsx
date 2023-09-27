@@ -17,7 +17,7 @@ export default function Product({ title, imageSource, price, id }) {
             {/* {leftDescription} */}
           </div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <PrimaryButton className="card-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ const ProductStyled = styled.div`
         align-items: center;
         font-size: ${theme.fonts.size.P1};
 
-        .primary-button {
+        .card-button {
           font-size: ${theme.fonts.size.XS};
           cursor: pointer;
           padding: 12px;
