@@ -2,7 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme";
-import Product from "./Product";
+import Card from "./Card";
+import { formatPrice } from "../../../../utils/maths";
 
 export default function Menu() {
   //state
@@ -13,16 +14,15 @@ export default function Menu() {
   //affichage
   return (
     <MenuStyled>
-      {menu.map((product) => {
+      {menu.map(({ title, imageSource, price, id }) => {
         return (
-          // <Product
-          //   title={product.title}
-          //   imageSource={product.imageSource}
-          //   price={product.price}
-          //   id={product.id}
-          //   key={product.id}
-          // />
-          <Product {...product} />
+          <Card
+            title={title}
+            imageSource={imageSource}
+            leftDescription={formatPrice(price)}
+            id={id}
+            key={id}
+          />
         );
       })}
     </MenuStyled>
