@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import PrimaryButton from "../../../reusable-ui/PrimaryButton.jsx";
+import { formatPrice } from "../../../../utils/maths";
 
 export default function Product({ title, imageSource, price, id }) {
   return (
@@ -10,14 +12,12 @@ export default function Product({ title, imageSource, price, id }) {
       <div className="text-info">
         <div className="title">{title}</div>
         <div className="description">
-          {/* <div className="price">{price}</div>
-          <button className="add-button">Ajouter</button> */}
           <div className="left-description">
-            {price}
+            {formatPrice(price)}
             {/* {leftDescription} */}
           </div>
           <div className="right-description">
-            {/* <PrimaryButton className="primary-button" label={"Ajouter"} /> */}
+            <PrimaryButton className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
