@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton.jsx";
+import { theme } from "../../theme";
+import PrimaryButton from "./PrimaryButton.jsx";
 
 export default function Card({ title, imageSource, id, leftDescription }) {
   return (
