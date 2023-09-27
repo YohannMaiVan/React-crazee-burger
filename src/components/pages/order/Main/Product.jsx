@@ -1,6 +1,8 @@
+import styled from "styled-components";
+
 export default function Product({ title, imageSource, price, id }) {
   return (
-    <div className="product" key={id}>
+    <ProductStyled className="product" key={id}>
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
@@ -11,6 +13,36 @@ export default function Product({ title, imageSource, price, id }) {
           <button className="add-button">Ajouter</button>
         </div>
       </div>
-    </div>
+    </ProductStyled>
   );
 }
+
+const ProductStyled = styled.div`
+  background: red;
+  width: 200px;
+  height: 300px;
+  display: grid;
+  grid-template-rows: 65% 1fr;
+  padding: 20px;
+  padding-bottom: 10px;
+
+  .image {
+    border: 1px solid yellow;
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .info-text {
+    border: 2px solid black;
+  }
+
+  .description {
+    border: 1px solid blue;
+  }
+`;
