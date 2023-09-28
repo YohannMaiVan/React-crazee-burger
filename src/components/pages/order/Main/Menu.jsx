@@ -14,17 +14,15 @@ export default function Menu() {
   //affichage
   return (
     <MenuStyled>
-      {menu.map(({ title, imageSource, price, id }) => {
-        return (
-          <Card
-            title={title}
-            imageSource={imageSource}
-            leftDescription={formatPrice(price)}
-            id={id}
-            key={id}
-          />
-        );
-      })}
+      {menu.map(({ title, imageSource, price, id }) => (
+        <Card
+          title={title}
+          imageSource={imageSource}
+          leftDescription={formatPrice(price)}
+          id={id}
+          key={id}
+        />
+      ))}
     </MenuStyled>
   );
 }

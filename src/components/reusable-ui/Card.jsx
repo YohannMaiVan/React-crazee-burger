@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
-import PrimaryButton from "./PrimaryButton.jsx";
+import PrimaryButton from "./PrimaryButton";
 
 export default function Card({ title, imageSource, id, leftDescription }) {
   return (
@@ -35,6 +35,7 @@ const CardStyled = styled.div`
     width: 100%;
     height: auto;
     margin-top: 30px;
+    margin-bottom: 15px;
     img {
       width: 100%;
       height: 100%;
