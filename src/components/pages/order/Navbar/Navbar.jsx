@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import NavbarRightSide from "./NavbarRightSide";
-import Logo from "../../reusable-ui/Logo.jsx";
-import { theme } from "../../../theme";
-import { refreshPage } from "../../../utils/window";
+import { refreshPage } from "../../../../utils/window";
+import Logo from "../../../reusable-ui/Logo";
+import { theme } from "../../../../theme";
 
 export default function Navbar({ username }) {
   return (
@@ -16,6 +16,7 @@ const NavbarStyled = styled.nav`
   background: ${theme.colors.white};
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
+  border-bottom: 1px solid ${theme.colors.greyLight};
   height: 12vh;
   display: flex;
   justify-content: space-between;
