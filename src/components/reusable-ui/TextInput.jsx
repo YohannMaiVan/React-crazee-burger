@@ -16,19 +16,19 @@ const InputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
-  padding: 18px 24px;
-  margin: 18px 0;
+  padding: ${theme.fonts.size.P1} ${theme.fonts.size.P3};
+  margin: ${theme.fonts.size.P1} 0;
 
   .icon-input {
     color: ${theme.colors.greySemiDark};
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-right: 12px;
   }
 
   input {
     border: none;
     color: ${theme.colors.dark};
-    font-size: 15px;
+    font-size: ${theme.fonts.size.SM};
     width: 100%;
 
     &::placeholder {

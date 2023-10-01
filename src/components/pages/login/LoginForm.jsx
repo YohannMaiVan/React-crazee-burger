@@ -56,7 +56,7 @@ const LoginFormStyled = styled.form`
   font-family: "Amatic SC", cursive;
 
   hr {
-    border: 1.5px solid ${theme.colors.tomato};
+    border: 1.5px solid ${theme.colors.loginLine};
     margin-bottom: ${theme.gridUnit * 5}px;
   }
 
@@ -72,7 +72,7 @@ const LoginFormStyled = styled.form`
   }
 
   .icon-button {
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-top: 0.156rem;
     margin-left: 0.6rem;
   }
