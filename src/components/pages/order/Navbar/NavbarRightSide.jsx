@@ -6,7 +6,7 @@ import ToastAdmin from "./ToastAdmin";
 import { toast } from "react-toastify";
 import OrderContext from "../../../../context/OrderContext";
 
-export default function NavbarRightSide({ username }) {
+export default function NavbarRightSide() {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext); //destructure and extract datas we need
 
   const displayToastNotification = () => {
