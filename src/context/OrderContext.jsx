@@ -7,12 +7,6 @@ export default createContext({
   isCollapsed: false,
   setIsCollapsed: () => {},
 
-  isEditSelected: false,
-  setIsEditSelected: () => {},
-
-  isAddSelected: false,
-  setIsAddSelected: () => {},
-
   currentTabSelected: false,
   setCurrentTabSelected: () => {},
 });
