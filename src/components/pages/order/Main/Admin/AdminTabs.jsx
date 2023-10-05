@@ -23,6 +23,7 @@ export default function AdminTabs() {
 
   const tabs = getTabsConfig(currentTabSelected);
 
+  //affichage
   return (
     <AdminTabsStyled>
       <Tab
