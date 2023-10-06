@@ -35,7 +35,7 @@ const CardStyled = styled.div`
     width: 100%;
     height: auto;
     margin-top: 30px;
-    margin-bottom: 15px;
+    margin-bottom: ${theme.fonts.size.SM};
     img {
       width: 100%;
       height: 100%;
