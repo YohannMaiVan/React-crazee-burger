@@ -7,7 +7,9 @@ import OrderContext from "../../../context/OrderContext";
 
 export default function OrderPage() {
   //state
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  // const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(true); //to develop F08
+
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   //comportements
