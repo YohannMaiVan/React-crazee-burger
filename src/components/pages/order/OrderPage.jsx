@@ -11,7 +11,7 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu.SMALL)
   const [isModeAdmin, setIsModeAdmin] = useState(true) //to develop F08
 
-  const [isCollapsed, setIsCollapsed] = useState(false) // to develop F08
+  const [isCollapsed, setIsCollapsed] = useState(true) // to develop F08
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
 
   //comportements
@@ -25,6 +25,19 @@ export default function OrderPage() {
     setMenu(menuUpdated)
   }
 
+  const handleDelete = (idOfProductToDelete) => {
+    console.log("idOfProductToDelete: ", idOfProductToDelete)
+    //copie du state
+    const menuCopy = [...menu]
+
+    //manipulation de la copie du state
+    const menuCopyUpdated = menuCopy.filter(
+      (product) => product.id !== idOfProductToDelete
+    )
+
+    setMenu(menuCopyUpdated)
+  }
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -35,6 +48,7 @@ export default function OrderPage() {
     menu,
     setMenu,
     handleAdd,
+    handleDelete,
   }
   //affichage
   return (

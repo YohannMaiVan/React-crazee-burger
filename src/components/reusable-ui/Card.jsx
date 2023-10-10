@@ -1,8 +1,14 @@
-import styled from "styled-components";
-import { theme } from "../../theme";
-import PrimaryButton from "./PrimaryButton";
+import styled from "styled-components"
+import { theme } from "../../theme"
+import PrimaryButton from "./PrimaryButton"
 
-export default function Card({ title, imageSource, id, leftDescription }) {
+export default function Card({
+  title,
+  imageSource,
+  id,
+  leftDescription,
+  onDelete,
+}) {
   return (
     <CardStyled className="product" key={id}>
       <div className="image">
@@ -13,12 +19,13 @@ export default function Card({ title, imageSource, id, leftDescription }) {
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
+            <button onClick={onDelete}>X</button>
             <PrimaryButton className="card-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
     </CardStyled>
-  );
+  )
 }
 
 const CardStyled = styled.div`
@@ -92,4 +99,4 @@ const CardStyled = styled.div`
       }
     }
   }
-`;
+`

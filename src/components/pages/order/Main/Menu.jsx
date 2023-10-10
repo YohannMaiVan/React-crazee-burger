@@ -7,7 +7,13 @@ import OrderContext from "../../../../context/OrderContext"
 
 export default function Menu() {
   //state
-  const { menu } = useContext(OrderContext)
+  const { menu, handleDelete } = useContext(OrderContext)
+
+  // gestionnaire d'evenement
+  const handleOnDelete = (id) => {
+    handleDelete(id)
+    alert("votre produit a bien ete supprime")
+  }
 
   //affichage
   return (
@@ -19,6 +25,7 @@ export default function Menu() {
           leftDescription={formatPrice(price)}
           id={id}
           key={id}
+          onDelete={() => handleOnDelete(id)}
         />
       ))}
     </MenuStyled>
