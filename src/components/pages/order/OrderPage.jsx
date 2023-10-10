@@ -1,18 +1,29 @@
-import styled from "styled-components";
-import Main from "./Main/Main";
-import Navbar from "./Navbar/Navbar";
-import { theme } from "../../../theme";
-import { useState } from "react";
-import OrderContext from "../../../context/OrderContext";
+import styled from "styled-components"
+import Main from "./Main/Main"
+import Navbar from "./Navbar/Navbar"
+import { theme } from "../../../theme"
+import { useState } from "react"
+import OrderContext from "../../../context/OrderContext"
+import { fakeMenu } from "../../../fakeData/fakeMenu"
 
 export default function OrderPage() {
   //state
-  // const [isModeAdmin, setIsModeAdmin] = useState(false);
-  const [isModeAdmin, setIsModeAdmin] = useState(true); //to develop F08
+  const [menu, setMenu] = useState(fakeMenu.SMALL)
+  const [isModeAdmin, setIsModeAdmin] = useState(true) //to develop F08
 
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [isCollapsed, setIsCollapsed] = useState(false) // to develop F08
+  const [currentTabSelected, setCurrentTabSelected] = useState("add")
+
   //comportements
+  // gestionnaire de state (state handler)
+  const handleAdd = (newProduct) => {
+    //1. copie du tableau
+    const menuCopy = [...menu]
+    //2. manip de la COPIE tableau
+    const menuUpdated = [newProduct, ...menuCopy]
+    //3. update du state
+    setMenu(menuUpdated)
+  }
 
   const orderContextValue = {
     isModeAdmin,
@@ -21,7 +32,10 @@ export default function OrderPage() {
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
-  };
+    menu,
+    setMenu,
+    handleAdd,
+  }
   //affichage
   return (
     <OrderContext.Provider value={orderContextValue}>
@@ -32,7 +46,7 @@ export default function OrderPage() {
         </div>
       </OrderPageStyled>
     </OrderContext.Provider>
-  );
+  )
 }
 
 const OrderPageStyled = styled.div`
@@ -48,4 +62,4 @@ const OrderPageStyled = styled.div`
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};
   }
-`;
+`

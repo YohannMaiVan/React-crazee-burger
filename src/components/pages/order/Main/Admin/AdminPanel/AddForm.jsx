@@ -1,8 +1,27 @@
-import styled from "styled-components";
+import { useContext } from "react"
+import styled from "styled-components"
+import OrderContext from "../../../../../../context/OrderContext"
+
+const newProduct = {
+  id: new Date().getTime(),
+  title: "Nouveau produit",
+  imageSource:
+    "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2VyfGVufDB8fDB8fHww&w=1000&q=80",
+  price: 2.5,
+}
 
 export default function AddForm() {
+  const { handleAdd } = useContext(OrderContext)
+
+  // comportements
+  // gestionnaire d'évenement (state handler)
+  const handleOnSubmit = (event) => {
+    event.preventDefault()
+    handleAdd(newProduct)
+  }
+
   return (
-    <AddFormStyled>
+    <AddFormStyled onSubmit={handleOnSubmit}>
       <div className="image-preview">imagePreview</div>
       <div className="input-fields">
         <input type="text" placeholder="Nom" />
@@ -11,7 +30,7 @@ export default function AddForm() {
       </div>
       <button className="submit-button">submit button</button>
     </AddFormStyled>
-  );
+  )
 }
 
 const AddFormStyled = styled.form`
@@ -37,4 +56,4 @@ const AddFormStyled = styled.form`
 
     width: 50%;
   }
-`;
+`
