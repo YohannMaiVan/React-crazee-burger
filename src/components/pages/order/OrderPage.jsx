@@ -26,7 +26,6 @@ export default function OrderPage() {
   }
 
   const handleDelete = (idOfProductToDelete) => {
-    console.log("idOfProductToDelete: ", idOfProductToDelete)
     //copie du state
     const menuCopy = [...menu]
 
@@ -36,6 +35,10 @@ export default function OrderPage() {
     )
 
     setMenu(menuCopyUpdated)
+  }
+
+  const resetMenu = () => {
+    setMenu(fakeMenu.SMALL)
   }
 
   const orderContextValue = {
@@ -48,6 +51,7 @@ export default function OrderPage() {
     menu,
     handleAdd,
     handleDelete,
+    resetMenu,
   }
   //affichage
   return (

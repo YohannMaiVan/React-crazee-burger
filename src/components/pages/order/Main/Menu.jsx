@@ -8,16 +8,22 @@ import OrderContext from "../../../../context/OrderContext"
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png"
 
 export default function Menu() {
+  const { menu, handleDelete, isModeAdmin, resetMenu } =
+    useContext(OrderContext)
   //state
-  const { menu, handleDelete, isModeAdmin } = useContext(OrderContext)
 
-  // gestionnaire d'evenement
-  const handleOnDelete = (id) => {
-    handleDelete(id)
-    alert("votre produit a bien ete supprime")
-  }
+  //comportements
 
   //affichage
+
+  if (menu.length === 0)
+    return (
+      <div>
+        <span>Plus de produits</span>
+        <button onClick={resetMenu}>Générer un nouveau menu</button>
+      </div>
+    )
+
   return (
     <MenuStyled>
       {menu.map(({ title, imageSource, price, id }) => (
@@ -27,7 +33,7 @@ export default function Menu() {
           leftDescription={formatPrice(price)}
           id={id}
           key={id}
-          onDelete={() => handleOnDelete(id)}
+          onDelete={() => handleDelete(id)}
           hasDeleteButton={isModeAdmin}
         />
       ))}
