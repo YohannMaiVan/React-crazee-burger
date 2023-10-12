@@ -8,7 +8,7 @@ import { fakeMenu } from "../../../fakeData/fakeMenu"
 
 export default function OrderPage() {
   //state
-  const [menu, setMenu] = useState(fakeMenu.SMALL)
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM)
   const [isModeAdmin, setIsModeAdmin] = useState(true) //to develop F08
 
   const [isCollapsed, setIsCollapsed] = useState(true) // to develop F08
