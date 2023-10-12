@@ -9,7 +9,7 @@ const IMAGE_BY_DEFAULT = "/images/coming-soon.png"
 
 export default function Menu() {
   //state
-  const { menu, handleDelete } = useContext(OrderContext)
+  const { menu, handleDelete, isModeAdmin } = useContext(OrderContext)
 
   // gestionnaire d'evenement
   const handleOnDelete = (id) => {
@@ -28,6 +28,7 @@ export default function Menu() {
           id={id}
           key={id}
           onDelete={() => handleOnDelete(id)}
+          hasDeleteButton={isModeAdmin}
         />
       ))}
     </MenuStyled>

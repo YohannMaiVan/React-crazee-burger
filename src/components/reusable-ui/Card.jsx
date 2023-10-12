@@ -9,16 +9,19 @@ export default function Card({
   id,
   leftDescription,
   onDelete,
+  hasDeleteButton,
 }) {
   return (
     <CardStyled className="product" key={id}>
-      <button
-        className="delete-button"
-        aria-label="delete-button"
-        onClick={onDelete}
-      >
-        <TiDelete className="icon" />
-      </button>
+      {hasDeleteButton && (
+        <button
+          className="delete-button"
+          aria-label="delete-button"
+          onClick={onDelete}
+        >
+          <TiDelete className="icon" />
+        </button>
+      )}
 
       <div className="image">
         <img src={imageSource} alt={title} />
