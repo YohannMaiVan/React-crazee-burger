@@ -4,15 +4,15 @@ import OrderContext from "../../../../../../context/OrderContext"
 import { EMPTY_PRODUCT } from "../../../../../../javascript/constant"
 
 export default function AddForm() {
+  //state
   const { handleAdd } = useContext(OrderContext)
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
 
   // comportements
+
   // gestionnaire d'évenement (state handler)
   const handleOnSubmit = (event) => {
     event.preventDefault()
-
-    // crer un objet qui va contenir les 4 propretes qui m'interessent
     const newProductToAdd = {
       ...newProduct,
       id: crypto.randomUUID(),
@@ -21,17 +21,11 @@ export default function AddForm() {
   }
 
   const handleChange = (event) => {
-    const value = event.target.value
-    const name = event.target.name
-    // setTitle(usernameValue)
-    const newProductBeingChanged = {
-      ...newProduct,
-      [name]: value,
-    }
-
-    setNewProduct(newProductBeingChanged)
+    const { name, value } = event.target
+    setNewProduct({ ...newProduct, [name]: value })
   }
 
+  //affichage
   return (
     <AddFormStyled onSubmit={handleOnSubmit}>
       <div className="image-preview">imagePreview</div>
