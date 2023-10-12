@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { theme } from "../../../../theme";
-import Menu from "./Menu";
-import Admin from "./Admin/Admin";
-import { useContext } from "react";
-import OrderContext from "../../../../context/OrderContext";
+import styled from "styled-components"
+import { theme } from "../../../../theme"
+import Menu from "./Menu/Menu"
+import Admin from "./Admin/Admin"
+import { useContext } from "react"
+import OrderContext from "../../../../context/OrderContext"
 
 export default function Main() {
-  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext); //destructure and extract datas we need
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext) //destructure and extract datas we need
 
   return (
     <MainStyled>
@@ -16,7 +16,7 @@ export default function Main() {
         {isModeAdmin && <Admin />}
       </div>
     </MainStyled>
-  );
+  )
 }
 
 const MainStyled = styled.div`
@@ -41,4 +41,4 @@ const MainStyled = styled.div`
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
   }
-`;
+`
