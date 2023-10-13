@@ -4,6 +4,10 @@ import OrderContext from "../../../../../../context/OrderContext"
 import { EMPTY_PRODUCT } from "../../../../../../javascript/constant"
 import { FiCheck } from "react-icons/fi"
 import { theme } from "../../../../../../theme"
+import { FaHamburger } from "react-icons/fa"
+import { BsFillCameraFill } from "react-icons/bs"
+import { MdOutlineEuro } from "react-icons/md"
+import TextInput from "../../../../../reusable-ui/TextInput.jsx"
 
 export default function AddForm() {
   //state
@@ -48,26 +52,32 @@ export default function AddForm() {
         )}
       </div>
       <div className="input-fields">
-        <input
+        <TextInput
           name="title"
           value={newProduct.title}
           onChange={handleChange}
           type="text"
           placeholder="Nom du produit (ex: Super Burger)"
+          Icon={<FaHamburger />}
+          version="minimalist"
         />
-        <input
+        <TextInput
           name="imageSource"
           value={newProduct.imageSource}
           onChange={handleChange}
           type="text"
           placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png"
+          Icon={<BsFillCameraFill />}
+          version="minimalist"
         />
-        <input
+        <TextInput
           name="price"
-          value={newProduct.price}
+          value={newProduct.price ? newProduct.price : ""}
           onChange={handleChange}
           type="text"
           placeholder="Prix"
+          Icon={<MdOutlineEuro />}
+          version="minimalist"
         />
       </div>
       <div className="submit">
@@ -117,10 +127,10 @@ const AddFormStyled = styled.form`
     }
   }
   .input-fields {
-    background: blue;
     grid-area: 1 / 2 / -2 / 3;
 
     display: grid;
+    grid-row-gap: 8px;
   }
   .submit {
     background: green;
