@@ -2,7 +2,6 @@ import styled, { css } from "styled-components"
 import { theme } from "../../theme"
 
 export default function TextInput({
-  value,
   onChange,
   Icon,
   className,

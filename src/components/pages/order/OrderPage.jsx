@@ -5,14 +5,16 @@ import { theme } from "../../../theme"
 import { useState } from "react"
 import OrderContext from "../../../context/OrderContext"
 import { fakeMenu } from "../../../fakeData/fakeMenu"
+import { EMPTY_PRODUCT } from "../../../javascript/constant"
 
 export default function OrderPage() {
   //state
-  const [menu, setMenu] = useState(fakeMenu.EMPTY)
   const [isModeAdmin, setIsModeAdmin] = useState(true) //to develop F08
+  const [isCollapsed, setIsCollapsed] = useState(false) // to develop F08
 
-  const [isCollapsed, setIsCollapsed] = useState(true) // to develop F08
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM)
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
 
   //comportements
   // gestionnaire de state (state handler)
@@ -38,7 +40,7 @@ export default function OrderPage() {
   }
 
   const resetMenu = () => {
-    setMenu(fakeMenu.SMALL)
+    setMenu(fakeMenu.MEDIUM)
   }
 
   const orderContextValue = {
@@ -52,6 +54,8 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     resetMenu,
+    newProduct,
+    setNewProduct,
   }
   //affichage
   return (

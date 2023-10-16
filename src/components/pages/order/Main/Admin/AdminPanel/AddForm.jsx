@@ -12,10 +12,11 @@ import Button from "../../../../../reusable-ui/Button"
 
 export default function AddForm() {
   //state
-  const { handleAdd } = useContext(OrderContext)
-  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
+  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext)
+  // const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
   const [isSubmitted, setisSubmitted] = useState(false)
   // comportements
+  // console.log("newProduct", newProduct)
 
   // gestionnaire d'évenement (state handler)
   const handleOnSubmit = (event) => {
