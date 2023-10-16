@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { theme } from "../../../../../theme"
+import Button from "../../../../reusable-ui/Button"
 
 export default function EmptyMenuAdmin({ onReset }) {
   return (
@@ -8,9 +9,9 @@ export default function EmptyMenuAdmin({ onReset }) {
       <span className="description">
         Cliquez ci-dessous pour le réinitialiser
       </span>
-      <button label={"Générer de nouveaux produits"} onClick={onReset}>
+      <Button label={"Générer de nouveaux produits"} onClick={onReset}>
         Générer de nouveaux produits
-      </button>
+      </Button>
     </EmptyMenuStyled>
   )
 }
