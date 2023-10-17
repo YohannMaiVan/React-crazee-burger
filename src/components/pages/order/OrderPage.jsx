@@ -9,8 +9,8 @@ import { EMPTY_PRODUCT } from "../../../javascript/constant"
 
 export default function OrderPage() {
   //state
-  const [isModeAdmin, setIsModeAdmin] = useState(true) //to develop F08
-  const [isCollapsed, setIsCollapsed] = useState(false) // to develop F08
+  const [isModeAdmin, setIsModeAdmin] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(false)
 
   const [menu, setMenu] = useState(fakeMenu.MEDIUM)
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
