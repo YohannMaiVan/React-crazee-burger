@@ -5,7 +5,7 @@ export default function Button({
   label,
   Icon,
   className,
-  version = "normal",
+  version = "primary",
   onClick,
 }) {
   return (
@@ -17,8 +17,8 @@ export default function Button({
 }
 
 const ButtonStyled = styled.button`
-  ${(props) => props.version === "normal" && extraStylePrimary};
-  ${(props) => props.version === "success" && extraStyleSuccess};
+  /* ${(props) => props.version === "normal" && extraStylePrimary};
+  ${(props) => props.version === "success" && extraStyleSuccess}; */
 
   ${({ version }) => extraStyle[version]}
 `
