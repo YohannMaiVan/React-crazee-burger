@@ -10,11 +10,17 @@ import EmptyMenuClient from "./EmptyMenuClient"
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png"
 
 export default function Menu() {
-  const { menu, handleDelete, isModeAdmin, resetMenu } =
+  const { menu, handleDelete, isModeAdmin, resetMenu, setproductSelected } =
     useContext(OrderContext)
   //state
 
   //comportements
+  const handleClick = (idProductClicked) => {
+    const productSelected = menu.find(
+      (product) => product.id === idProductClicked
+    )
+    setproductSelected(productSelected)
+  }
 
   //affichage
 
@@ -33,6 +39,7 @@ export default function Menu() {
           key={id}
           onDelete={() => handleDelete(id)}
           hasDeleteButton={isModeAdmin}
+          onClick={() => handleClick(id)}
         />
       ))}
     </MenuStyled>

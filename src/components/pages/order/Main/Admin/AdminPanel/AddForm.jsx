@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
 import OrderContext from "../../../../../../context/OrderContext"
-import { EMPTY_PRODUCT } from "../../../../../../javascript/constant"
+import { EMPTY_PRODUCT } from "../../../../../../enums/product"
 import TextInput from "../../../../../reusable-ui/TextInput.jsx"
 import Button from "../../../../../reusable-ui/Button"
 import ImagePreview from "./ImagePreview"
