@@ -49,6 +49,7 @@ const CardStyled = styled.div`
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
   position: relative;
+  color: ${theme.colors.white};
 
   .delete-button {
     border: 1px solid red;

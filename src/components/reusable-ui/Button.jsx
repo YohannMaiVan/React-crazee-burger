@@ -84,15 +84,15 @@ const extraStyleSuccess = css`
   background: ${theme.colors.success};
   border: 1px solid ${theme.colors.success};
   border-radius: ${theme.borderRadius.round};
-  height: 35px;
+  height: 100%;
   padding: 0 1.5em;
   font-weight: ${theme.fonts.weights.semiBold};
-  :hover {
+  &:hover {
     background: ${theme.colors.white};
     color: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
   }
-  :active {
+  &:active {
     color: ${theme.colors.white};
     background: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
