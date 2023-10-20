@@ -10,7 +10,6 @@ export const getInputTextConfig = (newProduct) => [
     type: "text",
     placeholder: "Nom du produit (ex: Super Burger)",
     Icon: <FaHamburger />,
-    version: "minimalist",
   },
   {
     id: "1",
@@ -20,7 +19,6 @@ export const getInputTextConfig = (newProduct) => [
     placeholder:
       "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png",
     Icon: <BsFillCameraFill />,
-    version: "minimalist",
   },
   {
     id: "2",
@@ -29,6 +27,5 @@ export const getInputTextConfig = (newProduct) => [
     type: "text",
     placeholder: "Prix",
     Icon: <MdOutlineEuro />,
-    version: "minimalist",
   },
 ]
