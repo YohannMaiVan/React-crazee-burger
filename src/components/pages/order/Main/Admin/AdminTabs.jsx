@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import Tab from "../../../../reusable-ui/Tab";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { theme } from "../../../../../theme";
-import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
-import { tabsConfig } from "./tabsConfig";
+import styled from "styled-components"
+import Tab from "../../../../reusable-ui/Tab"
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"
+import { theme } from "../../../../../theme"
+import { useContext } from "react"
+import OrderContext from "../../../../../context/OrderContext"
+import { tabsConfig } from "./tabsConfig"
 
 export default function AdminTabs() {
   //state
@@ -13,15 +13,15 @@ export default function AdminTabs() {
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
-  } = useContext(OrderContext);
+  } = useContext(OrderContext)
 
   //comportements
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false);
-    setCurrentTabSelected(tabSelected);
-  };
+    setIsCollapsed(false)
+    setCurrentTabSelected(tabSelected)
+  }
 
-  const tabs = tabsConfig;
+  const tabs = tabsConfig
   //affichage
   return (
     <AdminTabsStyled>
@@ -40,13 +40,14 @@ export default function AdminTabs() {
         />
       ))}
     </AdminTabsStyled>
-  );
+  )
 }
 
 const AdminTabsStyled = styled.div`
   display: flex;
-  padding: 0 20px;
-
+  position: absolute;
+  top: -43px;
+  left: 5%;
   .is-active {
     background: ${theme.colors.background_dark};
     border-color: ${theme.colors.background_dark};
@@ -56,4 +57,4 @@ const AdminTabsStyled = styled.div`
   button {
     margin-left: 1px;
   }
-`;
+`

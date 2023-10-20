@@ -1,27 +1,27 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { IoChevronForward } from "react-icons/io5";
-import TextInput from "../../reusable-ui/TextInput";
-import { BsPersonCircle } from "react-icons/bs";
-import { theme } from "../../../theme";
-import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import styled from "styled-components"
+import { IoChevronForward } from "react-icons/io5"
+import TextInput from "../../reusable-ui/TextInput"
+import { BsPersonCircle } from "react-icons/bs"
+import { theme } from "../../../theme"
+import Button from "../../reusable-ui/Button"
 
 export default function LoginForm() {
   //state
-  const [username, setUsername] = useState("");
-  const navigate = useNavigate();
+  const [username, setUsername] = useState("Lina")
+  const navigate = useNavigate()
 
   //comportements
   const handleSubmit = (event) => {
-    event.preventDefault();
-    setUsername("");
-    navigate(`order/${username}`);
-  };
+    event.preventDefault()
+    setUsername("")
+    navigate(`order/${username}`)
+  }
 
   const handleChange = (event) => {
-    setUsername(event.target.value);
-  };
+    setUsername(event.target.value)
+  }
 
   //affichage
   return (
@@ -33,17 +33,16 @@ export default function LoginForm() {
         <TextInput
           value={username}
           onChange={handleChange}
-          Icon={<BsPersonCircle className="icon-input" />}
           placeholder={"Entrez votre prénom..."}
           required
+          Icon={<BsPersonCircle />}
+          className="input-login"
+          version="normal"
         />
-        <PrimaryButton
-          label={"Accéder à mon espace"}
-          Icon={<IoChevronForward className="icon-button" />}
-        />
+        <Button label={"Accéder à mon espace"} Icon={<IoChevronForward />} />
       </div>
     </LoginFormStyled>
-  );
+  )
 }
 
 const LoginFormStyled = styled.form`
@@ -71,9 +70,7 @@ const LoginFormStyled = styled.form`
     margin: 20px 10px 10px;
   }
 
-  .icon-button {
-    font-size: ${theme.fonts.size.SM};
-    margin-top: 0.156rem;
-    margin-left: 0.6rem;
+  .input-login {
+    margin: ${theme.fonts.size.P1} 0; //handled in Parent
   }
-`;
+`
