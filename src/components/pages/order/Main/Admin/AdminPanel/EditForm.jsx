@@ -11,9 +11,9 @@ export default function EditForm() {
   const { productSelected, setProductSelected, handleEdit } =
     useContext(OrderContext)
 
-  //comportements
-
   const inputTexts = getInputTextConfig(productSelected)
+
+  // comportements (gestionnaires d'événement ou "event handlers")
 
   const handleChange = (event) => {
     const { name, value } = event.target

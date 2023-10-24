@@ -10,6 +10,7 @@ import { deepClone } from "../../../utils/array"
 
 export default function OrderPage() {
   //state
+
   const [isModeAdmin, setIsModeAdmin] = useState(true)
   const [isCollapsed, setIsCollapsed] = useState(false)
 
@@ -18,8 +19,8 @@ export default function OrderPage() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT)
 
-  //comportements
-  // gestionnaire de state (state handler)
+  // comportements (gestionnaire de state ou "state handlers")
+
   const handleAdd = (newProduct) => {
     //1. copie du tableau
     const menuCopy = deepClone(menu)
