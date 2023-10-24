@@ -10,7 +10,7 @@ import EmptyMenuClient from "./EmptyMenuClient"
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png"
 
 export default function Menu() {
-  const { menu, handleDelete, isModeAdmin, resetMenu, setproductSelected } =
+  const { menu, handleDelete, isModeAdmin, resetMenu, setProductSelected } =
     useContext(OrderContext)
   //state
 
@@ -19,7 +19,7 @@ export default function Menu() {
     const productSelected = menu.find(
       (product) => product.id === idProductClicked
     )
-    setproductSelected(productSelected)
+    setProductSelected(productSelected)
   }
 
   //affichage

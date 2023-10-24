@@ -15,13 +15,13 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM)
   const [currentTabSelected, setCurrentTabSelected] = useState("edit")
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
-  const [productSelected, setproductSelected] = useState(EMPTY_PRODUCT)
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT)
 
   //comportements
   // gestionnaire de state (state handler)
   const handleAdd = (newProduct) => {
     //1. copie du tableau
-    const menuCopy = [...menu]
+    const menuCopy = JSON.parse(JSON.stringify(menu))
     //2. manip de la COPIE tableau
     const menuUpdated = [newProduct, ...menuCopy]
     //3. update du state
@@ -30,7 +30,7 @@ export default function OrderPage() {
 
   const handleDelete = (idOfProductToDelete) => {
     //copie du state
-    const menuCopy = [...menu]
+    const menuCopy = JSON.parse(JSON.stringify(menu))
 
     //manipulation de la copie du state
     const menuCopyUpdated = menuCopy.filter(
@@ -38,6 +38,21 @@ export default function OrderPage() {
     )
 
     setMenu(menuCopyUpdated)
+  }
+
+  const handleEdit = (productBeingEdited) => {
+    // 1. copie du state (deep clone)
+    const menuUpdating = JSON.parse(JSON.stringify(menu))
+
+    // 2. manip de la copie du state
+    const indexOfProductToEdit = menu.findIndex(
+      (menuProduct) => menuProduct.id === productBeingEdited.id
+    )
+
+    menuUpdating[indexOfProductToEdit] = productBeingEdited
+
+    // 3. update du state
+    setMenu(menuUpdating)
   }
 
   const resetMenu = () => {
@@ -58,7 +73,8 @@ export default function OrderPage() {
     newProduct,
     setNewProduct,
     productSelected,
-    setproductSelected,
+    setProductSelected,
+    handleEdit,
   }
   //affichage
   return (

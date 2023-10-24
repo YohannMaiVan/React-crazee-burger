@@ -1,25 +1,36 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import styled from "styled-components"
 import TextInput from "../../../../../reusable-ui/TextInput.jsx"
-// import HintMessage from "./HintMessage"
 import ImagePreview from "./ImagePreview"
-import { EMPTY_PRODUCT } from "../../../../../../enums/product"
 import OrderContext from "../../../../../../context/OrderContext"
 import { getInputTextConfig } from "./inputTextConfig.jsx"
 
 export default function EditForm() {
-  const { productSelected } = useContext(OrderContext)
-  const [productBeingEdited, setProductBeingEdited] = useState(EMPTY_PRODUCT) // state interne à EditForm
+  //state
+
+  const { productSelected, setProductSelected, handleEdit } =
+    useContext(OrderContext)
+
+  //comportements
 
   const inputTexts = getInputTextConfig(productSelected)
 
   const handleChange = (event) => {
     const { name, value } = event.target
-    setProductBeingEdited({
-      ...productBeingEdited,
+
+    const productBeingUpdated = {
+      ...productSelected,
       [name]: value,
-    })
+    }
+
+    //update the form
+    setProductSelected(productBeingUpdated)
+
+    //state handler du menu it updates menu
+    handleEdit(productBeingUpdated)
   }
+
+  //affichage
 
   return (
     <EditFormStyled>
@@ -53,7 +64,6 @@ const EditFormStyled = styled.form`
   grid-row-gap: 8px;
 
   .input-fields {
-    /* background: blue; */
     grid-area: 1 / 2 / -2 / 3;
 
     display: grid;
@@ -61,7 +71,6 @@ const EditFormStyled = styled.form`
   }
 
   .submit {
-    /* background: green; */
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
     align-items: center;
