@@ -51,6 +51,8 @@ export default function Card({
 const CardStyled = styled.div`
   ${(props) => props["data-is-hoverable"] && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
+  border: 1px solid red;
+  height: 330px;
 
   .card {
     width: 240px;
