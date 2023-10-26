@@ -20,8 +20,9 @@ export default function Card({
       key={id}
       onClick={onClick}
       data-is-hoverable={isHoverable} //{/*Use of data- to avoid DOM warning */}
+      data-is-selected={isSelected}
     >
-      <div className="card" style={isSelected ? { background: "orange" } : {}}>
+      <div className="card">
         {hasDeleteButton && (
           <button
             className="delete-button"
@@ -40,7 +41,7 @@ export default function Card({
           <div className="description">
             <div className="left-description">{leftDescription}</div>
             <div className="right-description">
-              <Button className="card-button" label={"Ajouter"} />
+              <Button className="primary-button" label={"Ajouter"} />
             </div>
           </div>
         </div>
@@ -52,7 +53,7 @@ export default function Card({
 const CardStyled = styled.div`
   ${(props) => props["data-is-hoverable"] && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 330px;
 
   .card {
@@ -149,7 +150,7 @@ const CardStyled = styled.div`
           align-items: center;
           font-size: ${theme.fonts.size.P1};
 
-          .card-button {
+          .primary-button {
             font-size: ${theme.fonts.size.XS};
             cursor: pointer;
             padding: 12px;
@@ -157,6 +158,8 @@ const CardStyled = styled.div`
         }
       }
     }
+    ${(props) =>
+      props["data-is-hoverable"] && props["data-is-selected"] && selectedStyle}
   }
 `
 
@@ -166,5 +169,62 @@ const hoverableStyle = css`
     transition: ease-out 0.4s;
     box-shadow: ${theme.shadows.orangeHighlight};
     cursor: pointer;
+  }
+`
+
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+  .primary-button {
+    color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.white};
+    transition: all 200ms ease-out;
+    :hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.white};
+      transition: all 200ms ease-out;
+    }
+    :active {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
+
+    &.is-disabled {
+      opacity: 50%;
+      cursor: not-allowed;
+      z-index: 2;
+    }
+
+    &.with-focus {
+      border: 1px solid white;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      :hover {
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.primary};
+        border: 1px solid ${theme.colors.white};
+      }
+      :active {
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.primary};
+      }
+    }
+  }
+
+  .delete-button {
+    color: ${theme.colors.white};
+
+    :active {
+      color: ${theme.colors.white};
+    }
+  }
+
+  .text-info {
+    .description {
+      .left-description {
+        color: ${theme.colors.white};
+      }
+    }
   }
 `
