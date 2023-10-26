@@ -41,6 +41,7 @@ export default function Menu() {
           hasDeleteButton={isModeAdmin}
           onClick={() => handleClick(id)}
           isHoverable={isModeAdmin}
+          isSelected={true}
         />
       ))}
     </MenuStyled>
