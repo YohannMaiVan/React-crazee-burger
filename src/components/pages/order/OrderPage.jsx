@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Main from "./Main/Main"
 import Navbar from "./Navbar/Navbar"
 import { theme } from "../../../theme"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import OrderContext from "../../../context/OrderContext"
 import { fakeMenu } from "../../../fakeData/fakeMenu"
 import { EMPTY_PRODUCT } from "../../../enums/product"
@@ -18,6 +18,7 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add")
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT)
+  const titleEditRef = useRef()
 
   // comportements (gestionnaire de state ou "state handlers")
 
@@ -77,6 +78,7 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     handleEdit,
+    titleEditRef,
   }
   //affichage
   return (
