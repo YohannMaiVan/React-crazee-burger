@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import styled from "styled-components"
 import TextInput from "../../../../../reusable-ui/TextInput.jsx"
+import EditInfoMessage from "./EditInfoMessage.jsx"
 import ImagePreview from "./ImagePreview"
 import OrderContext from "../../../../../../context/OrderContext"
 import { getInputTextConfig } from "./inputTextConfig.jsx"
@@ -50,10 +51,7 @@ export default function EditForm() {
         ))}
       </div>
       <div className="submit">
-        <span className="sentence">
-          Cliquer sur un produit du menu pour le modifier{" "}
-          <span className="live-update">en temps réel</span>
-        </span>
+        <EditInfoMessage />
       </div>
     </EditFormStyled>
   )
