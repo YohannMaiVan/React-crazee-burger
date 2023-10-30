@@ -15,9 +15,9 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   const [menu, setMenu] = useState(fakeMenu.MEDIUM)
-  const [currentTabSelected, setCurrentTabSelected] = useState("add")
+  const [currentTabSelected, setCurrentTabSelected] = useState("edit")
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
-  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT)
+  const [productSelected, setProductSelected] = useState(fakeMenu.SMALL[1])
   const titleEditRef = useRef()
 
   // comportements (gestionnaire de state ou "state handlers")
