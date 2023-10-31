@@ -1,8 +1,11 @@
 import { AiOutlinePlus } from "react-icons/ai"
 import { MdModeEditOutline } from "react-icons/md"
+import { FiSettings } from "react-icons/fi"
 import AddForm from "./AdminPanel/AddForm"
 import EditForm from "./AdminPanel/EditForm"
 import HintMessage from "./AdminPanel/HintMessage.jsx"
+import Form from "./AdminPanel/Form"
+import Button from "../../../../reusable-ui/Button"
 
 export const getTabsConfig = (hasAlreadyBeenClicked) => [
   {
@@ -17,7 +20,33 @@ export const getTabsConfig = (hasAlreadyBeenClicked) => [
     Icon: <MdModeEditOutline />,
     Content: hasAlreadyBeenClicked ? <EditForm /> : <HintMessage />,
   },
+  {
+    index: "manger",
+    label: "Autre onglet",
+    Icon: <FiSettings />,
+    Content: <UnComposant />,
+  },
 ]
 
 export const getTabSelected = (tabs, currentTabSelected) =>
   tabs.find((tab) => tab.index === currentTabSelected)
+
+export function UnComposant() {
+  return (
+    <Form
+      product={{
+        id: "1",
+        imageSource: "/images/burger1.png",
+        title: "Burger 1",
+        price: 5.297,
+        quantity: 0,
+        isAvailable: true,
+        isAdvertised: false,
+      }}
+    >
+      <div style={{ width: "50%" }}>
+        <Button version="primary" label={"Bonjour"} />
+      </div>
+    </Form>
+  )
+}

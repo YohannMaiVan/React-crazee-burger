@@ -6,7 +6,7 @@ import TextInput from "../../../../../reusable-ui/TextInput"
 
 // eslint-disable-next-line react/display-name
 const Form = React.forwardRef(
-  ({ product, onSubmit, onChange, QUELQUECHOSE }, ref) => {
+  ({ product, onSubmit, onChange, children }, ref) => {
     // state (vide)
 
     // comportements (vide)
@@ -28,7 +28,7 @@ const Form = React.forwardRef(
             />
           ))}
         </div>
-        <div className="submit">{QUELQUECHOSE}</div>
+        <div className="submit">{children}</div>
       </FormStyled>
     )
   }
