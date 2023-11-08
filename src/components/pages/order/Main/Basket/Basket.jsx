@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { theme } from "../../../../../theme"
 
 export default function Basket() {
   return (
@@ -18,11 +19,16 @@ const BasketStyled = styled.div`
 
   .head {
     background: red;
+    height: 70px;
+    background: ${theme.colors.background_dark};
   }
   .body {
-    background: blue;
+    flex: 1;
+    background: ${theme.colors.background_white};
   }
   .footer {
     background: green;
+    height: 70px;
+    background: ${theme.colors.background_dark};
   }
 `
