@@ -1,21 +1,18 @@
 import styled, { css } from "styled-components"
 import { theme } from "../../theme"
+import React from "react"
 
-export default function TextInput({
-  onChange,
-  Icon,
-  className,
-  version = "normal",
-  ...extraProps
-}) {
-  //affichage
-  return (
-    <TextInputStyled className={className} version={version}>
-      <div className="icon">{Icon && Icon}</div>
-      <input onChange={onChange} type="text" {...extraProps} />
-    </TextInputStyled>
-  )
-}
+const TextInput = React.forwardRef(
+  ({ onChange, Icon, className, version = "normal", ...extraProps }, ref) => {
+    //affichage
+    return (
+      <TextInputStyled className={className} version={version}>
+        <div className="icon">{Icon && Icon}</div>
+        <input ref={ref} onChange={onChange} type="text" {...extraProps} />
+      </TextInputStyled>
+    )
+  }
+)
 
 const TextInputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
@@ -45,6 +42,9 @@ const TextInputStyled = styled.div`
 
   ${({ version }) => extraStyle[version]}
 `
+
+TextInput.displayName = "TextInput" // Define displayName to avoid linter
+export default TextInput
 
 const extraStyleNormal = css`
   background-color: ${theme.colors.white};

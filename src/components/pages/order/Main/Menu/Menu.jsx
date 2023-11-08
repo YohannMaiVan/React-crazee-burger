@@ -6,15 +6,36 @@ import { formatPrice } from "../../../../../utils/maths"
 import OrderContext from "../../../../../context/OrderContext"
 import EmptyMenuAdmin from "./EmptyMenuAdmin"
 import EmptyMenuClient from "./EmptyMenuClient"
+import { checkIfProductIsClicked } from "./helper"
+import { EMPTY_PRODUCT } from "../../../../../enums/product"
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png"
 
 export default function Menu() {
-  const { menu, handleDelete, isModeAdmin, resetMenu } =
-    useContext(OrderContext)
+  const {
+    menu,
+    handleDelete,
+    isModeAdmin,
+    resetMenu,
+    productSelected,
+    setProductSelected,
+    setIsCollapsed,
+    setCurrentTabSelected,
+    titleEditRef,
+  } = useContext(OrderContext)
   //state
 
-  //comportements
+  // comportements (gestionnaires d'événement ou "event handlers")
+  const handleClick = async (idProductClicked) => {
+    if (!isModeAdmin) return
+    await setIsCollapsed(false)
+    await setCurrentTabSelected("edit")
+    const productClickedOn = menu.find(
+      (product) => product.id === idProductClicked
+    )
+    await setProductSelected(productClickedOn)
+    titleEditRef.current.focus()
+  }
 
   //affichage
 
@@ -22,6 +43,15 @@ export default function Menu() {
     if (!isModeAdmin) return <EmptyMenuClient />
     return <EmptyMenuAdmin onReset={resetMenu} />
   }
+
+  const handleCardDelete = (event, idProductToDelete) => {
+    event.stopPropagation()
+    handleDelete(idProductToDelete)
+    idProductToDelete === productSelected.id &&
+      setProductSelected(EMPTY_PRODUCT)
+    titleEditRef.current.focus()
+  }
+
   return (
     <MenuStyled>
       {menu.map(({ title, imageSource, price, id }) => (
@@ -31,8 +61,11 @@ export default function Menu() {
           leftDescription={formatPrice(price)}
           id={id}
           key={id}
-          onDelete={() => handleDelete(id)}
+          onDelete={(event) => handleCardDelete(event, id)}
           hasDeleteButton={isModeAdmin}
+          onClick={() => handleClick(id)}
+          isHoverable={isModeAdmin}
+          isSelected={checkIfProductIsClicked(id, productSelected.id)}
         />
       ))}
     </MenuStyled>
