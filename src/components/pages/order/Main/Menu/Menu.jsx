@@ -49,7 +49,7 @@ export default function Menu() {
     handleDelete(idProductToDelete)
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT)
-    titleEditRef.current.focus()
+    if (titleEditRef.current) titleEditRef.current.focus()
   }
 
   return (

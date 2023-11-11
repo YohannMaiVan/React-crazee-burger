@@ -11,7 +11,9 @@ export default function AdminPanel() {
   const hasAlreadyBeenClicked = productSelected !== EMPTY_PRODUCT
   const tabs = getTabsConfig(hasAlreadyBeenClicked)
   const tabSelected = getTabSelected(tabs, currentTabSelected)
-  return <AdminPanelStyled>{tabSelected && tabSelected.label}</AdminPanelStyled>
+  return (
+    <AdminPanelStyled>{tabSelected && tabSelected.Content}</AdminPanelStyled>
+  )
 }
 
 const AdminPanelStyled = styled.div`
