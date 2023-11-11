@@ -2,14 +2,14 @@ import { useState } from "react"
 
 export const useSuccessMessage = (timeDelay = 2000) => {
   //state
-  const [isSubmitted, setisSubmitted] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   // comportements
 
   const displaySuccessMessage = () => {
-    setisSubmitted(true)
+    setIsSubmitted(true)
     setTimeout(() => {
-      setisSubmitted(false)
+      setIsSubmitted(false)
     }, timeDelay)
   }
 
