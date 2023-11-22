@@ -21,6 +21,6 @@ const TotalStyled = styled.div`
   color: ${theme.colors.primary};
   font-family: ${theme.fonts.family.stylish};
   font-size: ${theme.fonts.size.P4};
-  font-weight: ${theme.fonts.weights.bold};
+  font-weight: ${theme.fonts.weights.regular};
   letter-spacing: 2px;
 `
