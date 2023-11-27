@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react"
+import { useContext } from "react"
 import OrderContext from "../../../../../../context/OrderContext"
 import { EMPTY_PRODUCT } from "../../../../../../enums/product"
-import Button from "../../../../../reusable-ui/Button"
-import SubmitMessage from "./SubmitMessage"
 import Form from "./Form"
+import SubmitButton from "./SubmitButton"
+import { useSuccessMessage } from "../../../../../../hooks/useSuccessMessage"
 
 export default function AddForm() {
   //state
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext)
-  const [isSubmitted, setisSubmitted] = useState(false)
+  const { isSubmitted, displaySuccessMessage } = useSuccessMessage()
 
   // comportements
 
@@ -29,13 +29,6 @@ export default function AddForm() {
     setNewProduct({ ...newProduct, [name]: value })
   }
 
-  const displaySuccessMessage = () => {
-    setisSubmitted(true)
-    setTimeout(() => {
-      setisSubmitted(false)
-    }, 2000)
-  }
-
   //affichage
   return (
     <Form
@@ -43,14 +36,7 @@ export default function AddForm() {
       onSubmit={handleOnSubmit}
       onChange={handleChange}
     >
-      <>
-        <Button
-          className="submit-button"
-          label={"Ajouter un nouveau produit au menu"}
-          version="success"
-        />
-        {isSubmitted && <SubmitMessage />}
-      </>
+      <SubmitButton isSubmitted={isSubmitted} />
     </Form>
   )
 }
